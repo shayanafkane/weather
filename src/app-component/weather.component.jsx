@@ -1,25 +1,25 @@
 import React from 'react';
 
-const Weather = () => {
+const Weather = (props) => {
     return(
         <div className="container">
             <div className="cards text-center">
-                <h1>London</h1>
+                <h1>{props.city},{props.country}</h1>
                 <h5 className="py-4">
-                    <i className="wi wi-day-sunny display-1">
+                    <i className={`wi ${props.weathericone} display-1`}>
 
                     </i>
                 </h5>
                 <h1 className="py-2">
-                    25&deg;
+                    {props.celsius}&deg;
                 </h1>
 
 
                 {/** show max and min */}
-                {minmaxTemp(24,19)}
+                {minmaxTemp(props.temp_min,props.temp_max)}
 
                 <h4 className="py-3">
-                    Slow rain
+                   {props.description}
                 </h4>
             </div>
         </div>
