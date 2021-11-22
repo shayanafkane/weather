@@ -21,7 +21,6 @@ class App extends React.Component {
       description: "",
       error: false
     };
-    this.getWeather();
 
     this.weathericone = {
       Thunderstorm: "wi-thunderstorm",
@@ -66,28 +65,62 @@ class App extends React.Component {
     }
   }
 
-  getWeather = async () => {
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_key}`);
-    const response = await api_call.json();
+  getWeather = async (e) => {
 
-    console.log(response)
+    e.preventDefault();
 
-    this.setState({
-      city: response.name,
-      country: response.sys.country,
-      celsius: this.calCelsius(response.main.temp),
-      temp_max: this.calCelsius(response.main.temp_max),
-      temp_min: this.calCelsius(response.main.temp_min),
-      description: response.weather[0].description,
+    const city = e.target.elements.city.value;
+    if (city) {
+
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_key}`);
+      const response = await api_call.json();
+      console.log(response)
+
+      this.setState({
+        city: response.name,
+        country: response.sys.country,
+        celsius: this.calCelsius(response.main.temp),
+        temp_max: this.calCelsius(response.main.temp_max),
+        temp_min: this.calCelsius(response.main.temp_min),
+        description: response.weather[0].description,
 
 
-    });
-    this.get_WeatherIcon(this.weathericone, response.weather[0].id);
+      });
+      this.get_WeatherIcon(this.weathericone, response.weather[0].id);
+    } else {
+      this.setState({
+        error: true
+      })
+    }
+    this.weatherIcon = {
+      Thunderstorm: "wi-thunderstorm",
+      Drizzle: "wi-sleet",
+      Rain: "wi-storm-showers",
+      Snow: "wi-snow",
+      Atmosphere: "wi-fog",
+      Clear: "wi-day-sunny",
+      Clouds: "wi-day-fog"
+    };
+
   }
   render() {
     return (
       <div className="App">
-        <Form />
+        <div className="container mt-5 mb-4">
+          <div>{this.state.error ? error() : null}</div>
+          <form onSubmit={this.getWeather}>
+            <div className="row">
+              <div className="col-md-6">
+                <input type="text" className="form-control" name="city" autoComplete="off" placeholder="Enter the name of the city" />
+              </div>
+
+              <div className="col-md-6 mt-md-0 text-md-left d-flex justify-content-center">
+                <button className="btn btn-warning">Get Weather</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
         <Weather city={this.state.city} country={this.state.country} celsius={this.state.celsius} temp_max={this.state.temp_max} temp_min={this.state.temp_min}
           description={this.state.description} weathericone={this.state.icon} />
       </div>
@@ -95,4 +128,13 @@ class App extends React.Component {
   }
 }
 
+
+
+function error() {
+  return (
+    <div className="alert alert-danger mx-5" role="alert">
+      Pleace Enter City
+    </div>
+  )
+}
 export default App;
