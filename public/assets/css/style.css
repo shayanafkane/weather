@@ -1,5 +1,5 @@
 body {
-    background: url("https://res.cloudinary.com/dpzrxnav1/image/upload/v1637585529/test/1540031_khnjwv.jpg") no-repeat;
+    background: url("https://res.cloudinary.com/dpzrxnav1/image/upload/v1637585529/test/1540031_khnjwv.jpg");
     background-size: cover;
 }
 @media screen and (max-width: 1300px) {

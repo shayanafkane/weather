@@ -111,7 +111,7 @@ class App extends React.Component {
           <form onSubmit={this.getWeather}>
             <div className="row">
               <div className="col-md-6">
-                <input type="text" className="form-control" name="city" autoComplete="off" placeholder="Enter the name of the city" />
+                <input type="text" className="form-control" name="city" autoComplete="off" placeholder="Enter name city" />
               </div>
 
               <div className="col-md-6 mt-md-0 text-md-left d-flex justify-content-center">
