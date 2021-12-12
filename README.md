@@ -1,4 +1,4 @@
-Create Weather App in React js
+Weather App in React js
 
 Demo Project : http://shayanafkane.ir/portfolio/Weather/
 <hr>
