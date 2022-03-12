@@ -1,25 +1,27 @@
-body {
-    background: url("https://res.cloudinary.com/dpzrxnav1/image/upload/v1637585529/test/1540031_khnjwv.jpg");
-    background-size: cover;
-}
-@media screen and (max-width: 1300px) {
-    body {
-        background-size: auto;
-    }
-}
 * {
-    color: white;
+	color:#fff
+}
+body {
+	background:url(https://res.cloudinary.com/dpzrxnav1/image/upload/v1637585529/test/1540031_khnjwv.jpg);
+	background-size:cover
 }
 .custom-weather {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 77px;
+	width:100%;
+	height:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin-top:77px
+}
+@media screen and (max-width: 1300px) {
+	body
+	{
+		background-size:auto
+	}
 }
 @media screen and (max-width: 768px) {
-    .form-control {
-        margin-bottom: 50px;
-    }
+	.form-control
+	{
+		margin-bottom:20px
+	}
 }
