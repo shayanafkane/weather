@@ -110,11 +110,11 @@ class App extends React.Component {
           <div>{this.state.error ? error() : null}</div>
           <form onSubmit={this.getWeather}>
             <div className="row">
-              <div className="col-md-6">
-                <input type="text" className="form-control" name="city" autoComplete="off" placeholder="Enter name city" />
+              <div className="col-xl-10 col-lg-10 col-md-9 col-sm-12 col-12">
+                <input type="text" className="form-control" name="city" autoComplete="off" placeholder="Enter name city" required="required" />
               </div>
 
-              <div className="col-md-6 mt-md-0 text-md-left d-flex justify-content-center">
+              <div className="col-xl-2 col-lg-2 col-md-3 col-sm-12 col-12">
                 <button className="btn btn-warning">Get Weather</button>
               </div>
             </div>
@@ -132,7 +132,7 @@ class App extends React.Component {
 
 function error() {
   return (
-    <div className="alert alert-danger mx-5" role="alert">
+    <div className="alert alert-danger" role="alert">
       Pleace Enter City
     </div>
   )
